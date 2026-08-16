@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="sparkGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="100" height="100" rx="22" fill="#0A0A0F"/>
+  <path d="M50.00,50.00 Q57.50,30.76 50.00,13.00 Q42.50,30.76 50.00,50.00 Z" fill="url(#sparkGrad)"/>
+  <path d="M50.00,50.00 Q70.41,46.88 82.04,31.50 Q62.91,33.88 50.00,50.00 Z" fill="url(#sparkGrad)"/>
+  <path d="M50.00,50.00 Q62.91,66.12 82.04,68.50 Q70.41,53.12 50.00,50.00 Z" fill="url(#sparkGrad)"/>
+  <path d="M50.00,50.00 Q42.50,69.24 50.00,87.00 Q57.50,69.24 50.00,50.00 Z" fill="url(#sparkGrad)"/>
+  <path d="M50.00,50.00 Q29.59,53.12 17.96,68.50 Q37.09,66.12 50.00,50.00 Z" fill="url(#sparkGrad)"/>
+  <path d="M50.00,50.00 Q37.09,33.88 17.96,31.50 Q29.59,46.88 50.00,50.00 Z" fill="url(#sparkGrad)"/>
+</svg>
