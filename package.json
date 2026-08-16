@@ -1,0 +1,18 @@
+{
+  "name": "emmanuel-scale-growth-os",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Emmanuel Scale — Growth OS portfolio site: a static single-page frontend (public/) plus Vercel serverless functions (api/) powering the Free Shopify Store Audit feature.",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "scripts": {
+    "build": "echo 'No build step required — public/ is served as-is.' && exit 0",
+    "dev": "node test/dev-server.js",
+    "start": "node test/dev-server.js",
+    "test": "node test/run-all.js"
+  }
+}

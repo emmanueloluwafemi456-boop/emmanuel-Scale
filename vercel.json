@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
+  "functions": {
+    "api/audit.js": { "maxDuration": 25 },
+    "api/lead.js": { "maxDuration": 15 },
+    "api/manual-review.js": { "maxDuration": 15 }
+  }
+}
