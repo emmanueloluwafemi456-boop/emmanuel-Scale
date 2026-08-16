@@ -1,97 +1,102 @@
 # Emmanuel Scale — Growth OS
 
 The portfolio site for Emmanuel's Shopify growth agency: a single-page
-dark-mode site with service pages, case studies, an interactive growth
-calculator, and a real, functional **Free Shopify Store Audit** tool
-backed by serverless functions.
+dark-mode site with service pages, case studies, and an interactive
+growth calculator.
 
-**Live architecture, no build step:** the frontend is one self-contained
-`public/index.html` (React + Tailwind, loaded from CDN, JSX compiled
-in-browser by Babel Standalone). The backend is a handful of small
-Vercel serverless functions in `api/`. There's no bundler, no `dist/`
-folder, and nothing to compile — what you see in `public/index.html`
+**Hosted on GitHub Pages, no build step:** the entire site is one
+self-contained `docs/index.html` (React + Tailwind, loaded from CDN,
+JSX compiled in-browser by Babel Standalone). There's no bundler, no
+`dist/` folder, and nothing to compile — what's in `docs/index.html`
 is exactly what ships.
 
 ## Folder structure
 
 ```
-public/            The entire static site — deploy target
-  index.html          Single-file React app (all pages, all components)
+docs/               The entire site — this is what GitHub Pages serves
+  index.html            Single-file React app (all pages, all components)
   favicon.svg, .ico, *.png, site.webmanifest
 
-api/                Vercel serverless functions
-  audit.js             POST — crawls a store URL, returns real audit scores
-  lead.js               POST — saves + emails a "get my full audit" submission
-  manual-review.js      POST — saves + emails a "review manually" request
-
-lib/                The actual audit engine used by api/*.js
-  ssrf-guard.js         SSRF-safe fetcher (blocks private IPs, pins DNS, etc.)
-  signal-extraction.js  Pure HTML → signals parser (cheerio, no network I/O)
-  scoring.js             Deterministic 0–100 scoring across 7 categories
-  audit-engine.js        Orchestrates a full audit end to end
-  email.js                Resend integration for lead-notification emails
-  kv.js, store.js, rate-limit.js   Upstash/Vercel KV client, lead log, rate limits
-
-test/               188 dependency-free tests + a local dev server
-  run-all.js             Test runner (npm test)
-  dev-server.js           Local server emulating Vercel's routing (npm run dev)
-  fixtures/               Sample HTML used by the signal-extraction tests
-
-vercel.json         Deployment config (output dir, function timeouts)
-package.json        The only dependency is cheerio, used by api/*.js
-.env.example         Every environment variable the backend reads
-SETUP.md            Full deployment walkthrough with a step-by-step checklist
+api/, lib/          A dormant Vercel serverless backend (not currently
+                        deployed — see "About the Free Store Audit
+                        backend" below). GitHub Pages never serves these.
+test/               188 tests for that backend, plus a local dev server
+vercel.json         Config for if the Vercel backend is ever redeployed
+package.json        The only dependency (cheerio) is used by api/*.js
 ```
+
+## Deploying (GitHub Pages)
+
+1. Push this repo to GitHub (or upload the files through the GitHub
+   web UI — no git required).
+2. In the repo: **Settings → Pages**.
+3. Under **"Build and deployment" → Source**, choose **"Deploy from a
+   branch"**.
+4. Branch: **main** (or whichever branch has this code), Folder:
+   **`/docs`**.
+5. Save. GitHub gives you a live URL — typically
+   `https://<username>.github.io/<repo-name>/` — within a minute or two.
+
+That's it. Everything on the site (all pages, the growth calculator,
+the application form) runs entirely client-side or talks to a
+third-party service directly from the browser, so plain static hosting
+is all it needs.
+
+## About the Free Store Audit backend
+
+Earlier this project included a fully automated "Free Store Audit"
+tool — it would actually crawl a submitted Shopify store and generate
+real, live SEO/CRO/trust scores. That required a real server, which
+GitHub Pages can't provide, so that page has been removed from the
+live site (its CTAs now point to the application form in `#contact`
+instead, which still works — see below).
+
+The backend code that powered it hasn't been deleted, only disconnected
+— it's sitting dormant in `api/` and `lib/`, fully tested (188 tests,
+`npm test`). If you ever want that feature live again, it can be
+redeployed on Vercel (or similar) without rebuilding anything; see
+**SETUP.md** for the full walkthrough.
+
+## The application form still works without any backend
+
+The "Apply For Free Growth Audit" form in the Contact section submits
+directly to [Web3Forms](https://web3forms.com) — a third-party API
+called straight from the browser. It needs no server of your own, so
+it works exactly the same on GitHub Pages as anywhere else.
 
 ## Local development
 
+Just open `docs/index.html` directly in a browser, or serve the
+`docs/` folder with any static file server. Note it loads
+React/Tailwind/Babel from public CDNs, so normal internet access is
+needed to render it.
+
+If you also want to run/test the dormant backend locally:
 ```
 npm install
 npm run dev
 ```
-
-This starts a local server on `http://localhost:5311` that serves
-`public/` and routes `/api/*` to the real function handlers — the same
-routing convention Vercel uses. Note that `public/index.html` still
-loads React/Tailwind/Babel from public CDNs, so normal internet access
-is required to render it in a browser; only the `/api/*` routes run
-fully locally.
+starts a local server on `http://localhost:5311` serving `docs/` and
+routing `/api/*` to the real function handlers, mimicking Vercel's
+routing convention.
 
 ## Testing
 
 ```
 npm test
 ```
-
-Runs all 188 tests (SSRF protection, HTML signal extraction, scoring,
-end-to-end audit orchestration, rate limiting, email formatting, and
-every API handler's validation/error paths). No test framework
-dependency — plain Node `assert`, run via `test/run-all.js`.
-
-## Deploying to Vercel
-
-1. Push this repo to GitHub.
-2. In Vercel: **New Project → Import** this repo. Framework preset:
-   **Other**. No build command needed to change — `vercel.json` already
-   points `outputDirectory` at `public/`.
-3. Add the environment variables listed in `.env.example` under
-   **Settings → Environment Variables** (at minimum `RESEND_API_KEY` to
-   enable the audit lead-notification emails).
-4. For rate limiting and lead persistence, add a KV database via
-   **Storage → Create Database → KV** — Vercel injects the two required
-   env vars automatically.
-5. Deploy.
-
-The site works even before steps 3–4 are done — the audit tool still
-runs real crawls and real scoring; only the final "submit" step will
-honestly report that it couldn't go through, rather than faking
-success. See **SETUP.md** for the full walkthrough, a post-deploy
-verification checklist, and how the audit engine works under the hood.
+Runs the 188 backend tests (SSRF protection, HTML signal extraction,
+scoring, end-to-end audit orchestration, rate limiting, email
+formatting, API validation). These test the dormant `api/`/`lib/`
+backend, not the live GitHub Pages site — the live site has no backend
+to test.
 
 ## Notes
 
-- `chats/` and `project/` are archival design-handoff material from
-  this site's original build and aren't part of the deployed app.
-- Hash-based routing (`#free-store-audit`, `#zesto`, etc.) means there's
-  no server-side routing/rewrite config to maintain — every route is a
-  plain static `public/index.html` load, resolved client-side.
+- `chats/` and `project/` (if present) are archival design-handoff
+  material from this site's original build and aren't part of the
+  deployed app.
+- Hash-based routing (`#zesto`, `#cro-optimization`, etc.) means every
+  route is just `docs/index.html` loaded once, with the right page
+  resolved client-side from the URL fragment — no server-side routing
+  config needed, which is exactly why plain static hosting works here.

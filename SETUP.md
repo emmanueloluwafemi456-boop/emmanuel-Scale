@@ -1,31 +1,40 @@
-# Free Store Audit — Setup Guide
+# Free Store Audit — Setup Guide (currently dormant)
 
-This document is for **you** (the site owner), not visitors. It explains exactly
-what was built, what's still needed to make it fully live, and how to deploy it.
+**Status: this feature is not live on the site right now.** The site is
+hosted on GitHub Pages (static-only, no server), so the automated audit tool
+— which needs a real backend to safely crawl a store and score it — was
+disconnected from the live pages. Its CTAs now point to the "Apply For Free
+Growth Audit" contact form instead, which needs no backend and works fine on
+GitHub Pages.
 
-## What changed
+The backend that powered it (`api/`, `lib/`) is untouched and fully tested —
+this document is for if/when you want to bring it back by redeploying on
+Vercel alongside GitHub Pages. It explains what exists, what's still needed,
+and how to deploy it.
 
-Your portfolio was a single static `index.html` file with no backend. It still
-is that (now living in `public/`, the standard static-output folder Vercel
-expects), **plus** three small serverless functions and a `/free-store-audit`
-page that talks to them:
+## Important: the frontend page was also removed, not just disconnected
+
+The `/free-store-audit` page's React components (the URL form, loading
+state, results dashboard, lead form) were removed from `docs/index.html`
+entirely — deploying the backend alone will **not** bring the page back.
+That frontend code still exists in this repo's git history, in the commit
+that removed it (look for "drop the Free Store Audit tool" or similar in
+`git log`) — restore it from there, re-add the two router lines for the
+`free-store-audit` hash, and point the CTAs back to it before redeploying
+the backend.
+
+## What exists
 
 ```
-public/index.html    <- your existing portfolio (unchanged design, one new page + one rewired CTA)
-api/audit.js         <- POST: crawls a public storefront and returns real scores
-api/lead.js           <- POST: saves + emails a "get my full audit" submission
-api/manual-review.js  <- POST: saves + emails a "review my store manually" submission
-lib/                  <- the actual audit engine (SSRF-safe fetcher, HTML signal
-                          extraction, deterministic scoring, email, storage, rate limiting)
-test/                 <- 188 automated tests covering the backend (run: npm test)
-vercel.json           <- output folder + serverless function timeout config
+docs/index.html       <- your live site (the audit page/route is NOT in here right now)
+api/audit.js          <- POST: crawls a public storefront and returns real scores
+api/lead.js            <- POST: saves + emails a "get my full audit" submission
+api/manual-review.js   <- POST: saves + emails a "review my store manually" submission
+lib/                   <- the actual audit engine (SSRF-safe fetcher, HTML signal
+                           extraction, deterministic scoring, email, storage, rate limiting)
+test/                  <- 188 automated tests covering the backend (run: npm test)
+vercel.json            <- output folder + serverless function timeout config
 ```
-
-Nothing in your existing sections (Hero, Services, Blueprint, Case Studies,
-Store Growth, Tech Fixing, the "Let's Talk" modal, the Contact form, or any
-"Book a Strategy Call" button) was touched, except **one** existing CTA —
-"Get Your Free Store Audit" in the About section — which used to scroll to
-the contact form and now opens the new audit page instead, per your request.
 
 ## Why a real deployment is required
 
@@ -52,8 +61,10 @@ files assume that convention (a `(req, res) => {}` handler per file in
 1. Push this folder to a GitHub repo (or run `vercel` from the CLI directly
    in this folder — either works).
 2. In Vercel: **New Project → Import** your repo. Framework preset: "Other".
-   `vercel.json` already points the build output at `public/`, so no
+   `vercel.json` already points the build output at `docs/`, so no
    configuration is needed — it's static + serverless functions as-is.
+   (This deploys the whole site again, on Vercel, in parallel with GitHub
+   Pages — you'd end up choosing one as your real domain.)
 3. In your new Vercel project → **Settings → Environment Variables**, add:
 
    | Variable | Value | Required? |
@@ -80,8 +91,10 @@ through, instead of pretending it succeeded. Nothing fakes success.
 
 ## Verifying it after deploy
 
-1. Visit `your-domain/#free-store-audit` (or click "Get Your Free Store
-   Audit" from the About section).
+(Assumes you've restored the frontend page per the note above — otherwise
+there's no UI to test this from yet.)
+
+1. Visit `your-domain/#free-store-audit`.
 2. Enter a real Shopify store URL and click "Analyze My Store →". You
    should see real, varying scores — try two different real stores and
    confirm the numbers differ (proof it's not hardcoded).

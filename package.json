@@ -2,7 +2,7 @@
   "name": "emmanuel-scale-growth-os",
   "version": "1.0.0",
   "private": true,
-  "description": "Emmanuel Scale — Growth OS portfolio site: a static single-page frontend (public/) plus Vercel serverless functions (api/) powering the Free Shopify Store Audit feature.",
+  "description": "Emmanuel Scale — Growth OS portfolio site: a static single-page frontend (docs/), hosted on GitHub Pages. api/ and lib/ are a dormant Vercel serverless backend, not currently deployed — see SETUP.md.",
   "engines": {
     "node": ">=18.17.0"
   },
@@ -10,7 +10,7 @@
     "cheerio": "^1.0.0"
   },
   "scripts": {
-    "build": "echo 'No build step required — public/ is served as-is.' && exit 0",
+    "build": "echo 'No build step required — docs/ is served as-is.' && exit 0",
     "dev": "node test/dev-server.js",
     "start": "node test/dev-server.js",
     "test": "node test/run-all.js"
