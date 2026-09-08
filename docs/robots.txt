@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emmanueloluwafemi456-boop.github.io/emmanuel-Scale/sitemap.xml
