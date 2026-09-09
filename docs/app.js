@@ -3782,7 +3782,7 @@ function SSSHero() {
   const [ref, revealed] = useReveal();
   return (
     <div ref={ref} className={'reveal ' + (revealed ? 'reveal-shown' : 'reveal-hidden')} style={{ maxWidth: 1100, margin: '0 auto', padding: '70px 24px 60px', textAlign: 'center' }}>
-      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ STORE BUILD & LAUNCH</div>
+      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ SHOPIFY STORE SETUP EXPERT</div>
       <h1 style={{ fontWeight: 900, fontSize: 'clamp(34px,5vw,52px)', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 22 }}>
         <div>Launch a Shopify Store That Is</div>
         <div>Ready to <GradientText>Sell</GradientText></div>
@@ -4409,7 +4409,7 @@ function CSDHero() {
   const [ref, revealed] = useReveal();
   return (
     <div ref={ref} className={'reveal ' + (revealed ? 'reveal-shown' : 'reveal-hidden')} style={{ maxWidth: 1100, margin: '0 auto', padding: '70px 24px 60px', textAlign: 'center' }}>
-      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ DESIGN & CONVERSION</div>
+      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ SHOPIFY STORE DESIGNER</div>
       <h1 style={{ fontWeight: 900, fontSize: 'clamp(34px,5vw,52px)', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 22 }}>
         <div>Design a Shopify Store That Is</div>
         <div>Built to <GradientText>Convert</GradientText></div>
@@ -4846,7 +4846,7 @@ function DSHero() {
   const [ref, revealed] = useReveal();
   return (
     <div ref={ref} className={'reveal ' + (revealed ? 'reveal-shown' : 'reveal-hidden')} style={{ maxWidth: 1100, margin: '0 auto', padding: '70px 24px 60px', textAlign: 'center' }}>
-      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ SOURCING & STRATEGY</div>
+      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ DROPSHIPPING EXPERT</div>
       <h1 style={{ fontWeight: 900, fontSize: 'clamp(34px,5vw,52px)', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 22 }}>
         <div>Build a Dropshipping Store Around</div>
         <div><GradientText>Winning Products</GradientText></div>
@@ -5283,7 +5283,7 @@ function PAHero() {
   const [ref, revealed] = useReveal();
   return (
     <div ref={ref} className={'reveal ' + (revealed ? 'reveal-shown' : 'reveal-hidden')} style={{ maxWidth: 1100, margin: '0 auto', padding: '70px 24px 60px', textAlign: 'center' }}>
-      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ META, TIKTOK & GOOGLE ADS</div>
+      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ SHOPIFY ADS EXPERT</div>
       <h1 style={{ fontWeight: 900, fontSize: 'clamp(34px,5vw,52px)', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 22 }}>
         <div>Turn Ad Spend Into</div>
         <div><GradientText>Predictable Revenue</GradientText></div>
@@ -5720,7 +5720,7 @@ function CROHero() {
   const [ref, revealed] = useReveal();
   return (
     <div ref={ref} className={'reveal ' + (revealed ? 'reveal-shown' : 'reveal-hidden')} style={{ maxWidth: 1100, margin: '0 auto', padding: '70px 24px 60px', textAlign: 'center' }}>
-      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ CONVERSION RATE OPTIMIZATION</div>
+      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ SHOPIFY CRO SPECIALIST</div>
       <h1 style={{ fontWeight: 900, fontSize: 'clamp(34px,5vw,52px)', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 22 }}>
         <div>Turn More Visitors Into</div>
         <div><GradientText>Paying Customers</GradientText></div>
@@ -6157,7 +6157,7 @@ function ERHero() {
   const [ref, revealed] = useReveal();
   return (
     <div ref={ref} className={'reveal ' + (revealed ? 'reveal-shown' : 'reveal-hidden')} style={{ maxWidth: 1100, margin: '0 auto', padding: '70px 24px 60px', textAlign: 'center' }}>
-      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ KLAVIYO EMAIL & SMS</div>
+      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ ECOMMERCE RETENTION EXPERT</div>
       <h1 style={{ fontWeight: 900, fontSize: 'clamp(34px,5vw,52px)', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 22 }}>
         <div>Turn One-Time Buyers Into</div>
         <div><GradientText>Repeat Customers</GradientText></div>
@@ -6590,7 +6590,7 @@ function TFHero() {
   const [ref, revealed] = useReveal();
   return (
     <div ref={ref} className={'reveal ' + (revealed ? 'reveal-shown' : 'reveal-hidden')} style={{ maxWidth: 1100, margin: '0 auto', padding: '70px 24px 60px', textAlign: 'center' }}>
-      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>Shopify Bug &amp; Technical Fixing</div>
+      <div className="inline-flex items-center gap-2" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)', color: '#93C5FD', padding: '7px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, marginBottom: 24 }}>★ SHOPIFY TECHNICAL EXPERT</div>
       <h1 style={{ fontWeight: 900, fontSize: 'clamp(34px,5vw,52px)', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 18 }}>
         <div>Advanced Shopify <GradientText>Troubleshooting</GradientText></div>
       </h1>
@@ -7226,7 +7226,7 @@ function SeoGeoAeoPage() {
   return (
     <SubpageChrome>
       <SvcHero
-        eyebrow="SEO / GEO / AEO"
+        eyebrow="SHOPIFY SEO EXPERT"
         lines={[{ text: 'Get Found' }, { text: 'Before Your Competitors Do.', gradient: true }]}
         subtext="Search is changing. I help ecommerce brands build visibility across Google, traditional search results, and AI-powered discovery — then turn that visibility into qualified traffic and revenue."
       />
@@ -7364,7 +7364,7 @@ function AnalyticsTrackingPage() {
   return (
     <SubpageChrome>
       <SvcHero
-        eyebrow="ANALYTICS & TRACKING"
+        eyebrow="ECOMMERCE ANALYTICS EXPERT"
         lines={[{ text: 'Stop Guessing.' }, { text: "Start Knowing What's Driving Revenue.", gradient: true }]}
         subtext="I build reliable tracking systems that show you where customers come from, where they drop off, what converts, and where your next growth opportunity is hiding."
       />
